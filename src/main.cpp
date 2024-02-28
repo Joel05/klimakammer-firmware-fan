@@ -194,7 +194,7 @@ void fanTick2(){
   unsigned long diff = now - fan2lastcall;
   fan2lastcall = now;
   if (diff > DebounceTimeUS){
-    fan1rpm =  1/(diff*0.000001)*60/2;
+    fan2rpm =  1/(diff*0.000001)*60/2;
   }
 }
 
