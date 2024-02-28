@@ -232,16 +232,16 @@ void setup() {
   pinMode(Fan2TachoPin, INPUT_PULLUP);
   attachInterrupt(Fan1TachoPin, fanTick1, RISING);
   attachInterrupt(Fan2TachoPin, fanTick2, RISING);
-
+  analogWriteFreq(25000);
   ITimer.setInterval(ReglerTimeMS*1000, pico_timer_callback(Regler));
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if((fan1lastcall < micros()-1000*1000) && fan1targetrpm > 200){ //If the last call of the first fan is more than 1 second ago
-    fan1pwm = 125;  //Set the pwm of the first fan to 100%
-  }
-  if((fan2lastcall < micros()-1000*1000) && fan2targetrpm > 200){ //If the last call of the second fan is more than 1 second ago
-    fan2pwm = 125;  //Set the pwm of the second fan to 100%
-  }
+  // if((fan1lastcall < micros()-1000*1000) && fan1targetrpm > 200){ //If the last call of the first fan is more than 1 second ago
+  //   fan1pwm = 125;  //Set the pwm of the first fan to 100%
+  // }
+  // if((fan2lastcall < micros()-1000*1000) && fan2targetrpm > 200){ //If the last call of the second fan is more than 1 second ago
+  //   fan2pwm = 125;  //Set the pwm of the second fan to 100%
+  // }
 }
